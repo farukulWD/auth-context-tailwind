@@ -3,6 +3,7 @@ import { AuthContext } from '../providers/AuthProviders';
 
 const Home = () => {
     const {user} = useContext(AuthContext)
+ 
     
     return (
         <div className='px-6'>
