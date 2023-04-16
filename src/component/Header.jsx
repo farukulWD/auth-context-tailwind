@@ -49,9 +49,9 @@ const handleLogOut=()=>{
             <li>
               <Link to="/register">Register</Link>
             </li>
-            <li>
+            {user && <li>
               <Link to="/profile">Profile</Link>
-            </li>
+            </li>}
             <li>
               <Link to="/oders">Oders</Link>
             </li>
@@ -70,9 +70,9 @@ const handleLogOut=()=>{
             <li>
               <Link to="/register">Register</Link>
             </li>
-            <li>
+            {user && <li>
               <Link to="/profile">Profile</Link>
-            </li>
+            </li>}
             <li>
               <Link to="/oders">Oders</Link>
             </li>
