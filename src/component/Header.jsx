@@ -5,7 +5,15 @@ import { AuthContext } from "../providers/AuthProviders";
 
 const Header = () => {
 
-const {user}= useContext(AuthContext)
+const {user,logOut}= useContext(AuthContext)
+
+const handleLogOut=()=>{
+  logOut()
+  .then(()=>{})
+  .catch(error=>{
+    console.log(error.message);
+  })
+}
 
 
   return (
@@ -41,6 +49,12 @@ const {user}= useContext(AuthContext)
             <li>
               <Link to="/register">Register</Link>
             </li>
+            <li>
+              <Link to="/profile">Profile</Link>
+            </li>
+            <li>
+              <Link to="/oders">Oders</Link>
+            </li>
           </ul>
         </div>
         <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
@@ -56,11 +70,21 @@ const {user}= useContext(AuthContext)
             <li>
               <Link to="/register">Register</Link>
             </li>
+            <li>
+              <Link to="/profile">Profile</Link>
+            </li>
+            <li>
+              <Link to="/oders">Oders</Link>
+            </li>
         </ul>
       </div>
       <div className="navbar-end">
         {
-            user? <span>{user.email}</span>:<Link to="/login">Sign In</Link>
+            user? <>
+            <span className="py-2 mr-2">{user.email}</span>
+            <button  onClick={handleLogOut}  className="btn btn-outline btn-xs text-white" >Sign Out</button>
+            </>
+            :<Link className="btn btn-outline btn-xs text-white" to="/login">Sign In</Link>
         }
       </div>
     </div>
